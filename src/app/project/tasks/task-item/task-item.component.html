@@ -1,0 +1,21 @@
+
+<div class="row" 
+     style = "background-color :rgb(110, 110, 124);
+             margin-top: 10px;
+            "
+     >
+    <div class = "pull-left">
+        <p>  {{ task.taskName }} </p>
+    </div>
+    <span class="pull-right">
+        <button type = "button"
+        class = "btn btn-primary" 
+        (click) = "onEditTask();" ><i class="fa fa-pencil"></i>
+        </button>
+        <button type = "button" 
+        style = "margin-left: 5px;" 
+        class = "btn btn-danger"
+        (click) = "onDeleteTask();">x </button>
+    </span>
+</div>
+<br>
