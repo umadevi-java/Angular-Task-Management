@@ -1,10 +1,13 @@
-<div class="container">
+<div class="container-fluid">
 <div class="row">
-    <h3> Project Name {{ projName }}</h3>
-    <button (click)= "onCreateTask();">+Create Task</button>
+    <div class="col-xs-9" >
+        <h3 > Project Name : {{ projName }}</h3>
+        <button class = "btn btn-primary" (click)= "onCreateTask();">+Create Task</button>
+    </div>
 </div>
+<br>
 <div class="row">
-    <div class="col-xs-6" >
+    <div class="col-xs-9" >
         <app-task-item class="list-group-items" 
         *ngFor="let taskEl of tasks; let i = index"
         [task] = "taskEl"

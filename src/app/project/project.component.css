@@ -1,8 +1,21 @@
 
+a:hover{
+    color: hsl(24, 67%, 47%);
+    background-color: yellow;
+
+    
+}
+
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
     background-color: #c96828 !important;
 }
 
 #right-panel {
-    background-color: blueviolet;
+    background-color: #B3D733 ;
 }
+
+#menu {
+    background-color:#110934;
+    color: white
+}
+
