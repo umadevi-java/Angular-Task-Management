@@ -30,7 +30,8 @@ export class TaskItemComponent implements OnInit {
     this.projectService.deleteTask(this.projIndex, this.index);
   }
   onEditTask(){
-    this.router.navigate([this.index,'edit'],{relativeTo:this.route,  queryParamsHandling: 'preserve'});
+    console.log('on edit click' +this.index);
+    this.router.navigate([this.index,'edit'],{relativeTo:this.route, queryParams: { selProjID: this.projIndex }});
   }
 
 

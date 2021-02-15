@@ -23,10 +23,12 @@ export class TaskEditComponent implements OnInit {
               private router : Router) { }
 
   ngOnInit() {
-    console.log(1);
+    
      this.route.params.subscribe(
      (params : Params) => {
-          this.projIndex = +params['id'];
+     
+          this.projIndex = +this.route.parent.snapshot.params['id'];
+          console.log('halooo proj id'+this.projIndex);
           this.taskIndex = +params['tId'];
           this.editMode = params['tId'] != null
           this.initForm();
@@ -35,7 +37,7 @@ export class TaskEditComponent implements OnInit {
   }
 
 initForm(){
-  console.log(2);
+  
  let taskName : String;
  let startDate : Date;
  let endDate :Date;
@@ -43,7 +45,7 @@ initForm(){
  let taskUsers = new FormArray([]);
 
     if(this.editMode){
-      
+      console.log('in task edit component' +this.projIndex);
       const taskObj = this.projSvc.getTask(this.projIndex, this.taskIndex);
       taskName = taskObj.taskName;
       startDate = taskObj.startDate;
@@ -93,7 +95,7 @@ initForm(){
 
   onSubmit(){
   
-    const saveTask = new Task(
+    const updatedTask = new Task(
       this.taskForm.value['taskName'],
       new Date(this.taskForm.value['startDate'] + "Z"),
       new Date(this.taskForm.value['endDate'] + "Z"),
@@ -103,12 +105,12 @@ initForm(){
     );
     
     if(this.editMode){
-      this.projSvc.updateTask(this.projIndex,this.taskIndex, saveTask)
+      this.projSvc.updateTask(this.projIndex,this.taskIndex, updatedTask);
     }else{
     //when the html names matches with the model name , just pass the form values, 
     //but here we need tochange the date format
     //this.projSvc.addTask(this.projIndex, this.taskForm.value)
-      this.projSvc.addTask(this.projIndex, saveTask);
+      this.projSvc.addTask(this.projIndex, updatedTask);
     }
     this.navigateBack();
   }

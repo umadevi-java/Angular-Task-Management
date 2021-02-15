@@ -6,14 +6,14 @@ import { TaskEditComponent } from './project/tasks/task-edit/task-edit.component
 import { TasksComponent } from './project/tasks/tasks.component';
 
 const routes: Routes = [
-  
+  { path: '', redirectTo: '/projects', pathMatch: 'full' },
   {path : 'projects', component : ProjectComponent, children :
-     [{path : ':id/tasks', component : TasksComponent },
-      {path : ':id/tasks/:tId/edit', component : TaskEditComponent },
+     [{path : ':id/tasks', component : TasksComponent ,children :
+        [{path : ':tId/edit', component : TaskEditComponent }]
+      },      
       {path : ':id/tasks/new', component : TaskEditComponent }
      ]
   }
-
 ];
 
 @NgModule({

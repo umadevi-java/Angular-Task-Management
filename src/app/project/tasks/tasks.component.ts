@@ -46,6 +46,14 @@ export class TasksComponent implements OnInit {
      
       if(projObj.tasks != null){
         this.tasks = this.projSvc.getTasks(this.projId);
+
+        //get the list of tasks whenever there is a change
+        this.projSvc.tasksChanged.
+        subscribe(
+          (tasks : Task[]) => {
+              this.tasks = tasks;
+          }
+        );
       }
     
   }
