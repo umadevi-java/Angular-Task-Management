@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Project } from '../project.model';
 import { ProjectService } from '../projects.service';
 import { Task } from '../task.model';
 
@@ -16,10 +14,6 @@ export class TasksComponent implements OnInit {
   projName : string = null;
   index : number;
   
-  taskListForm : FormGroup;
-
-
-
   constructor(private projSvc: ProjectService,
               private route: ActivatedRoute,
               private router : Router

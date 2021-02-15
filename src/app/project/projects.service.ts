@@ -44,13 +44,12 @@ projects : Project[] = [
 
 basicProjDetails(){
  return this.projects.slice();
+ 
 }
 
 getProject(projId : number){
   
   const specProject =this.projects[projId];
-  //const specProject =  this.projects
-  console.log('whats the name' +specProject.projName);
   return specProject
   }
 

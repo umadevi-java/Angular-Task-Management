@@ -20,8 +20,10 @@ projects : Project[];
 
   }
 
+  /*
   clickLink(index : number){
     this.router.navigate(['/projects',index,'tasks'], {relativeTo : this.route,  queryParamsHandling: 'preserve'});
   }
+  */
 
 }

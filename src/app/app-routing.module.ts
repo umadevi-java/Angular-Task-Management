@@ -9,9 +9,10 @@ const routes: Routes = [
   { path: '', redirectTo: '/projects', pathMatch: 'full' },
   {path : 'projects', component : ProjectComponent, children :
      [{path : ':id/tasks', component : TasksComponent ,children :
-        [{path : ':tId/edit', component : TaskEditComponent }]
-      },      
-      {path : ':id/tasks/new', component : TaskEditComponent }
+        [{path : ':tId/edit', component : TaskEditComponent },
+        {path : 'new', component : TaskEditComponent }]
+      }
+     
      ]
   }
 ];
